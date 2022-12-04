@@ -23,7 +23,10 @@ Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('c
 
 Route::prefix('admin')
     ->namespace('Admin')
+    ->middleware(['auth','admin'])
     ->group(function(){
         Route::get('/', [DashboardController::class, 'index'])
         ->name('dashboard');
     });
+// Auth::routes(['verify' => true]);
+require __DIR__.'/auth.php';
