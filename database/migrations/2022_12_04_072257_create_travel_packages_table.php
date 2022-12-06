@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('foods');
             $table->date('departure_date');
             $table->string('duration');
+            $table->string('type');
             $table->integer('price');
 
             $table->softDeletes();
