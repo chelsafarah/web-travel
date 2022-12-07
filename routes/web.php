@@ -7,6 +7,7 @@ use App\Http\Controllers\DetailController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Admin\TravelPackageController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\TransactionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +31,7 @@ Route::prefix('admin')
         ->name('dashboard');
         Route::resource('travel-package', TravelPackageController::class);
         Route::resource('gallery', GalleryController::class);
+        Route::resource('transaction', TransactionController::class);
     });
 
 // Auth::routes(['verify' => true]);

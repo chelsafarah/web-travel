@@ -32,4 +32,9 @@ class TravelPackage extends Model
     {
         return $this->hasMany(Gallery::class);
     }
+
+    public function transaction()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

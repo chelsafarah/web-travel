@@ -115,7 +115,6 @@ class GalleryController extends Controller
         $item = Gallery::findOrFail($id);
         $item->delete();
 
-        // Galleries::where('travel_package_id', $id)->delete();
         return redirect()->route('gallery.index');
     }
 }
