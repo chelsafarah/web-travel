@@ -16,7 +16,7 @@ NOMADS
                 You will see beautiful <br>
                 moment you never see before
             </p>
-            <a href="#" class="btn btn-get-started px-4 mt-4">
+            <a href="#popular" class="btn btn-get-started px-4 mt-4">
                 Get Started
             </a>
         </div>
@@ -61,74 +61,26 @@ NOMADS
         <section class="section-popular-content" id="popularContent">
             <div class="container">
                 <div class="section-popular-travel row justify-content-center">
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                        <div class="card-travel" style="background-image: url('frontend/images/popular1.jpg');">
-                            <div class="transbox-travel text-center d-flex flex-column">
-                                <div class="travel-country">
-                                    INDONESIA
-                                </div>
-                                <div class="travel-location">
-                                    DERATAN, BALI
-                                </div>
-                                <div class="travel-button mt-auto">
-                                    <a href="{{ route('detail') }}" class="btn btn-travel-details px-4">
-                                        View Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                        <div class="card-travel" style="background-image: url('frontend/images/popular2.jpg');">
-                            <div class="transbox-travel text-center d-flex flex-column">
-                                <div class="travel-country">
-                                    INDONESIA
-                                </div>
-                                <div class="travel-location">
-                                    BROMO, MALANG
-                                </div>
-                                <div class="travel-button mt-auto">
-                                    <a href="details.html" class="btn btn-travel-details px-4">
-                                        View Details
-                                    </a>
+                    @foreach ($travel_package as $travel)
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="card-travel" style="background-image: url('{{ $travel->galleries->count() ?  Storage::url($travel->galleries->first()->image) : '' }}');">
+                                <div class="transbox-travel text-center d-flex flex-column">
+                                    <div class="travel-country">
+                                        {{ strtoupper($travel->location) }}
+                                    </div>
+                                    <div class="travel-location">
+                                        {{ strtoupper($travel->title) }}
+                                    </div>
+                                    <div class="travel-button mt-auto">
+                                        <a href="{{ route('detail', $travel->slug) }}" class="btn btn-travel-details px-4">
+                                            View Details
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                        <div class="card-travel" style="background-image: url('frontend/images/popular3.jpg');">
-                            <div class="transbox-travel text-center d-flex flex-column">
-                                <div class="travel-country">
-                                    INDONESIA
-                                </div>
-                                <div class="travel-location">
-                                    NUSA PENIDA
-                                </div>
-                                <div class="travel-button mt-auto">
-                                    <a href="details.html" class="btn btn-travel-details px-4">
-                                        View Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                        <div class="card-travel" style="background-image: url('frontend/images/popular4.jpg');">
-                            <div class="transbox-travel text-center d-flex flex-column">
-                                <div class="travel-country">
-                                    INDONESIA
-                                </div>
-                                <div class="travel-location">
-                                    DUBAI
-                                </div>
-                                <div class="travel-button mt-auto">
-                                    <a href="details.html" class="btn btn-travel-details px-4">
-                                        View Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
             </div>
         </section>
