@@ -58,7 +58,7 @@
                                     <th>Visa</th>
                                     <th>DOE Passpport</th>
                                 </tr>
-                                @foreach ($item->transaction_detail as $detail)
+                                @foreach ($item->transaction_details as $detail)
                                     <tr>
                                         <td>{{ $detail->id }}</td>
                                         <td>{{ $detail->username }}</td>

@@ -32,7 +32,7 @@ class Transaction extends Model
         return $this->belongsTo(User::class,'user_id','id');
     }
 
-    public function transaction_detail()
+    public function transaction_details()
     {
         return $this->hasMany(TransactionDetail::class);
     }
